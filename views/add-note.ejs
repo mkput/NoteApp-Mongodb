@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <h2>Add Note Form</h2>
+  <div class="row mt-4 mb-3">
+    <div class="col-6">
+      <form method="post" action="/add-note">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            name="title"
+          />
+        </div>
+        <label for="exampleInputEmail1" class="form-label">Note</label>
+        <div class="form-floating mb-3">
+          <textarea
+            class="form-control"
+            placeholder="Leave a comment here"
+            id="floatingTextarea2"
+            style="height: 300px"
+            name="note"
+          ></textarea>
+          <label for="floatingTextarea2">Write your note here...</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+  <a href="/" class="">&laquo; Back to Home</a>
+</div>

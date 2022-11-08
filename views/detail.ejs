@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <h2>Detail Note</h2>
+  <div class="row mt-3">
+    <div class="col-8">
+      <div class="card">
+        <div class="card-header">Create At : <%= note.date %></div>
+        <div class="card-body">
+          <h5 class="card-title"><%= note.title %></h5>
+          <pre><%= note.note %></pre>
+          <a href="/note/edit/<%= note._id %>" class="btn btn-primary">Edit</a>
+          <form
+            method="post"
+            action="/delete_note?_method=DELETE"
+            class="d-inline"
+          >
+            <input type="hidden" name="_id" value="<%= note._id %>" />
+            <button
+              type="submit"
+              class="btn btn-danger"
+              onclick="return confirm('yakin?')"
+            >
+              Delete
+            </button>
+          <a href="/" class="d-block mt-2">&laquo; Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
