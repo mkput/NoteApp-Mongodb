@@ -1,45 +1,59 @@
 <div class="container mt-3">
-  <h2>My Notes</h2>
+    <h2>My Notes</h2>
 
-  <% if (msg.length !== 0) { %>
-  <div class="alert alert-success" role="alert"><%= msg %></div>
-  <% } %>
+    <% if (msg.length !== 0) { %>
+    <div class="alert alert-success" role="alert"><%= msg %></div>
+    <% } %>
 
-  <a href="/add-note" class="btn btn-primary mt-3">Add Note</a>
+    <a href="/add-note" class="btn btn-primary mt-3">Add Note</a>
 
-  <% if (notes.length === 0) { %>
-  <tr>
-    <td colspan="4">
-      <div class="alert fw-bold" role="alert">Note is Empty.</div>
-    </td>
-  </tr>
-  <% } %>
-  <div class="row d-flex align-items-center justify-content-centers mt-2">
-    <% notes.forEach(note => { %>
-    <div class="col-4 mb-4">
-      <div class="card" style="width: 24rem">
-        <div class="card-body">
-          <h5 class="card-title"><%= note.title %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= note.date %></h6>
-          <p class="card-text"><%= note.note %></p>
-          <a href="/note/<%= note._id %>" class="btn btn-success">Details</a>
-          <form
-            method="post"
-            action="/delete_note?_method=DELETE"
-            class="d-inline"
-          >
-            <input type="hidden" name="_id" value="<%= note._id %>" />
-            <button
-              type="submit"
-              class="btn btn-danger"
-              onclick="return confirm('yakin?')"
-            >
-              Delete
-            </button>
-          </form>
+    <% if (notes.length === 0) { %>
+    <tr>
+        <td colspan="4">
+            <div class="alert fw-bold" role="alert">Note is Empty.</div>
+        </td>
+    </tr>
+    <% } %>
+    <div class="row d-flex align-items-center justify-content-centers mt-2">
+        <% notes.forEach(note => { %>
+        <div class="col-4 mb-4">
+            <div class="card" style="width: 24rem">
+                <div class="card-body">
+                    <h5 class="card-title"><%= note.title %></h5>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        <%= note.date %>
+                    </h6>
+                    <p class="card-text"><%= note.note %></p>
+                    <a href="/note/<%= note._id %>" class="btn btn-success"
+                        >Details</a
+                    >
+                    <form
+                        method="post"
+                        action="/delete_note?_method=DELETE"
+                        class="d-inline"
+                    >
+                        <input
+                            type="hidden"
+                            name="_id"
+                            value="<%= note._id %>"
+                        />
+                        <button
+                            type="submit"
+                            class="btn btn-danger"
+                            onclick="return confirm('yakin?')"
+                        >
+                            Delete
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
+        <% }) %>
     </div>
-    <% }) %>
-  </div>
+    <a
+        href="/logout"
+        class="btn btn-primary mt-3"
+        onclick="return confirm('Yakin?')"
+        >Logout</a
+    >
 </div>
